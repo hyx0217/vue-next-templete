@@ -111,12 +111,20 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-
-@Component
-export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
-}
+import { defineComponent, ref } from "vue";
+export default defineComponent({
+  name: "hello world",
+  props: {
+    msg: String
+  },
+  setup() {
+    const count = ref(0);
+    // 暴露给模板
+    return {
+      count
+    };
+  }
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
