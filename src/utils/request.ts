@@ -1,6 +1,6 @@
 import { getToken } from "@/utils/auth";
 import axios from "axios";
-import {statusCode} from "@/config/statusCode"
+import { statusCode } from "@/config/statusCode"
 axios.defaults.headers["Content-Type"] = "application/json;charset=utf-8";
 // 创建axios实例
 const service = axios.create({
