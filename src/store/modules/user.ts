@@ -1,11 +1,11 @@
-import store from '@/store';
-import { getUser, login } from "@/api/login";
-import { getToken, removeToken, setToken } from "@/utils/auth";
-import { VuexModule, Module, Action, Mutation, getModule } from 'vuex-module-decorators';
+import store from '@/store'
+import { getUser, login } from '@/api/login'
+import { getToken, removeToken, setToken } from '@/utils/auth'
+import { VuexModule, Module, Action, Mutation, getModule } from 'vuex-module-decorators'
 export interface UserState {
-  token: string,
-  name: string,
-  avatar: string,
+  token: string
+  name: string
+  avatar: string
   roles: string[]
 }
 
@@ -42,7 +42,7 @@ class User extends VuexModule implements UserState {
   }
 
   @Action
-  public async Login(userInfo: { username: string, password: string }) {
+  public async Login(userInfo: { username: string; password: string }) {
     let { username, password } = userInfo
     username = username.trim()
     const { data } = await login({ username, password })
@@ -62,7 +62,9 @@ class User extends VuexModule implements UserState {
     if (this.token === '') {
       throw Error('GetUserInfo: token is undefined!')
     }
-    const { data } = await getUser({ /* Your params here */ })
+    const { data } = await getUser({
+      /* Your params here */
+    })
     if (!data) {
       throw Error('Verification failed, please Login again.')
     }
@@ -77,7 +79,6 @@ class User extends VuexModule implements UserState {
     this.SET_EMAIL(email)
   }
 
-
   @Action
   public async LogOut() {
     if (this.token === '') {
@@ -91,7 +92,3 @@ class User extends VuexModule implements UserState {
 }
 
 export const UserModule = getModule(User)
-
-
-
-

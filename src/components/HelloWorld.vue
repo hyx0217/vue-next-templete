@@ -8,34 +8,34 @@
 </template>
 
 <script lang="ts">
-import { useStore } from 'vuex';
-import { defineComponent, onMounted, ref } from 'vue';
+import { useStore } from 'vuex'
+import { defineComponent, onMounted, computed } from 'vue'
 
 export default defineComponent({
-  name: 'hello world',
+  name: 'Hello',
   props: {
     msg: String
   },
   setup() {
-    const store = useStore();
-    const count = ref(store.state.count.count);
+    const store = useStore()
+    const count = computed(() => store.state.count.count)
     const increse = () => {
-      store.dispatch('count/Increment', count.value++);
-    };
+      store.dispatch('count/Increment')
+    }
     const decrese = () => {
-      store.dispatch('count/Decrement', count.value--);
-    };
+      store.dispatch('count/Decrement')
+    }
     // 暴露给模板
     onMounted(() => {
-      console.log('mounted');
-    });
+      console.log('mounted')
+    })
     return {
       count,
       increse,
       decrese
-    };
+    }
   }
-});
+})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
