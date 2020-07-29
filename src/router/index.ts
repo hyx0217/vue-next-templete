@@ -4,17 +4,23 @@ import Layout from '@/layout/index.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
+    redirect:'/home',
     component: Layout,
-    children:[]
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    children: [
+      {
+        path: '/home',
+        name: 'home',
+        component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
+        meta: { title: '首页', hidden: false, icon: '' }
+      },
+      {
+        path: '/about',
+        name: 'about',
+        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+        meta: { title: '关于我', hidden: false, icon: '' }
+      }
+    ],
+    meta: { title: '引导', hidden: false, icon: '' }
   }
 ]
 

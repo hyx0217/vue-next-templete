@@ -21,6 +21,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import '@/assets/styles/mixin.scss';
+@import '@/assets/styles/variables.scss';
+
 .app-wrapper {
   @include clearfix;
   position: relative;
