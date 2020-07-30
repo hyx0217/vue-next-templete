@@ -8,10 +8,13 @@
     </div>
     <div class="menu-list">
       <div class="menu-item" v-for="(item, index) in routerList" :key="index">
-        <div v-for="(node, i) in item.children" :key="i">
-          <router-link :to="node.path">
-            {{ node.meta.title }}
-          </router-link>
+        <div>
+          <div class="slider-parent">{{ item.meta.title }}<myicon name="arrow-down"></myicon></div>
+          <div v-for="(node, i) in item.children" :key="i">
+            <router-link :to="node.path">
+              {{ node.meta.title }}
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -21,7 +24,9 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
+import Myicon from '@/components/Icons/index.vue'
 export default defineComponent({
+  components: { Myicon },
   name: 'Slider',
   setup() {
     const showLogo = true
@@ -64,6 +69,9 @@ export default defineComponent({
       vertical-align: middle;
     }
   }
+}
+.slider-parent {
+  cursor: pointer;
 }
 .menu-list {
   padding: 0 20px;
