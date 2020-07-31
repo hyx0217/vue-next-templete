@@ -2,9 +2,8 @@
   <i :class="['my-icon-' + name, 'iconfont']" :style="{ fontSize: 'size' + px }"></i>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  name: 'Myicon',
+export default {
+  name: 'MyIcon',
   props: {
     name: String,
     size: {
@@ -12,7 +11,7 @@ export default defineComponent({
       default: '20'
     }
   }
-})
+}
 </script>
 <style>
 @font-face {

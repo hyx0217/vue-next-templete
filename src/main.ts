@@ -1,9 +1,13 @@
-import { createApp }from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-createApp(App)
+import MyIcon from '@/components/Icons/index.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
+const app = createApp(App)
   .use(router)
   .use(store)
-  .mount('#app')
- 
+
+app.component('HelloWorld', HelloWorld)
+app.component('MyIcon', MyIcon)
+app.mount('#app')
