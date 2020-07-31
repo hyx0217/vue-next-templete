@@ -1,7 +1,7 @@
 <template>
-  <div class="navbar">
+  <nav class="navbar">
     <div>导航栏</div>
-  </div>
+  </nav>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'

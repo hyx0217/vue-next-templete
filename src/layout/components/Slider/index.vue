@@ -6,33 +6,21 @@
         <h1 v-else class="sidebar-title">{{ title }}</h1>
       </router-link>
     </div>
-    <div class="menu-list">
-      <div class="menu-item" v-for="(item, index) in routerList" :key="index">
-        <div>
-          <div class="slider-parent">{{ item.meta.title }}<my-icon name="arrow-down"></my-icon></div>
-          <div v-for="(node, i) in item.children" :key="i">
-            <router-link :to="node.path">
-              {{ node.meta.title }}
-            </router-link>
-          </div>
-        </div>
-      </div>
-    </div>
+    <menu-list :list="routerList"></menu-list>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
-// import Myicon from '@/components/Icons/index.vue'
+import MenuList from './menuList.vue'
 export default defineComponent({
-  // components: { Myicon },
+  components: { MenuList },
   name: 'Slider',
   setup() {
     const showLogo = true
     const title = 'Vue-next'
     const routerList = useRouter().options.routes
-    console.log(routerList)
     return { showLogo, title, routerList }
   }
 })
@@ -68,18 +56,6 @@ export default defineComponent({
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
       vertical-align: middle;
     }
-  }
-}
-.slider-parent {
-  cursor: pointer;
-}
-.menu-list {
-  padding: 0 20px;
-  height: 100%;
-  & > .menu-item {
-    color: #fff;
-    font-size: 20px;
-    padding: 10px 0;
   }
 }
 </style>

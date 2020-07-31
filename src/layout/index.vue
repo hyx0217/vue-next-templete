@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import Slider from './components/Slider.vue'
+import Slider from './components/Slider/index.vue'
 import Navbar from './components/Navbar.vue'
 import AppMain from './components/AppMain.vue'
 import { defineComponent } from 'vue'
