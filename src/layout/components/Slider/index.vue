@@ -6,7 +6,9 @@
         <h1 v-else class="sidebar-title">{{ title }}</h1>
       </router-link>
     </div>
-    <menu-list :list="routerList"></menu-list>
+    <div class="menu">
+       <menu-list :list="routerList"></menu-list>
+    </div>
   </div>
 </template>
 
@@ -57,5 +59,8 @@ export default defineComponent({
       vertical-align: middle;
     }
   }
+}
+.menu{
+  padding: 0 20px;
 }
 </style>

@@ -6,6 +6,8 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-essential',
     'eslint:recommended',
+    'prettier/@typescript-eslint',
+    'plugin:@typescript-eslint/recommended',
     '@vue/typescript/recommended',
     '@vue/prettier',
   ],
@@ -251,7 +253,7 @@ module.exports = {
     'valid-typeof': 2,
     'wrap-iife': [2, 'any'],
     'yield-star-spacing': [2, 'both'],
-    yoda: [2, 'never'],
+    "yoda": [2, 'never'],
     'prefer-const': 2,
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'object-curly-spacing': [

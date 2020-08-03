@@ -1,13 +1,9 @@
 {
+  "parser": "typescript",
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "none",
   "printWidth": 140,
-  "overrides": [
-    {
-      "files": ".prettierrc",
-      "options": { "parser": "json" }
-    }
-  ]
+  "disableLanguages": ["vue"]
 }

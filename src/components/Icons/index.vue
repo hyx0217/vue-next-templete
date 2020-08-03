@@ -1,5 +1,6 @@
 <template>
-  <i :class="['my-icon-' + name, 'iconfont']" :style="{ fontSize: size + 'px' }"></i>
+  <i :class="['my-icon-' + name, 'iconfont','my-icon']"
+     :style="{ fontSize: size + 'px' }"></i>
 </template>
 <script lang="ts">
 export default {
@@ -8,7 +9,7 @@ export default {
     name: String,
     size: {
       type: String,
-      default: '20'
+      default: '14'
     }
   }
 };
@@ -25,11 +26,18 @@ export default {
 }
 .iconfont {
   font-family: 'iconfont' !important;
-  font-size: 20px;
+  font-size: 14px;
   font-style: normal;
+  display: inline-block;
+  font-family: Ionicons;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .my-icon-arrow-down:before {
   content: '\e8a4';
 }

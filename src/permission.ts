@@ -1,22 +1,22 @@
-import router from './router'
-import store from './store'
-import { getToken } from './utils/auth'
+import router from './router';
+import store from './store';
+import { getToken } from './utils/auth';
 
 router.beforeEach((to, from, next) => {
   //白名单路由
-  const whiteUrl = ['/login', '/forget', '/register']
+  const whiteUrl = ['/login', '/forget', '/register'];
   if (getToken()) {
     if (to.path === '/login') {
-      next('/home')
+      next('/home');
     } else {
-      store.dispatch('GetUser')
+      store.dispatch('GetUser');
     }
-    next()
+    next();
   } else {
     if (whiteUrl.includes(to.path)) {
-      next()
+      next();
     } else {
-      next('/login')
+      next('/login');
     }
   }
-})
+});
