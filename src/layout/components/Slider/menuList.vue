@@ -76,7 +76,6 @@ export default defineComponent({
   .menu-item {
     display: flex;
     align-items: center;
-    padding: 14px 0;
   }
 }
 .menu-item {
@@ -84,7 +83,6 @@ export default defineComponent({
   font-size: 16px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  padding: 10px 0;
   .left-icon {
     float: left;
     margin-right: 10px;
