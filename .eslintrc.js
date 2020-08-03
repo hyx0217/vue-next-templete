@@ -220,7 +220,7 @@ module.exports = {
         allowTemplateLiterals: true
       }
     ],
-    semi: [2, 'never'],
+    semi: [2, 'always'],
     'semi-spacing': [
       2,
       {

@@ -11,19 +11,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { useRouter } from 'vue-router'
-import MenuList from './menuList.vue'
+import { defineComponent, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import MenuList from './menuList.vue';
 export default defineComponent({
   components: { MenuList },
   name: 'Slider',
   setup() {
-    const showLogo = true
-    const title = 'Vue-next'
-    const routerList = useRouter().options.routes
-    return { showLogo, title, routerList }
+    const showLogo = true;
+    const title = 'Vue-next';
+    const routerList = reactive(useRouter().options.routes);
+    return { showLogo, title, routerList };
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>

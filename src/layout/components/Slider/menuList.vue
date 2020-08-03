@@ -1,16 +1,20 @@
 <template>
   <div class="menu-list">
     <div class="menu-item" v-for="(item, index) in list" :key="index">
-      <div :class="['menu-parent', 'menu-sub']" v-if="item.children && item.children.length > 0" @click.prevent="showSub">
-        {{ item.meta.title }}<my-icon name="arrow-down"></my-icon>
-        <menu-list :list="item.children" v-show="opened"></menu-list>
+      <div :class="['menu-parent', 'menu-sub']" v-if="item.children && item.children.length > 0">
+        <div @click.prevent="showSub(item)">{{ item.meta.title }}<my-icon :name="item.opened ? 'arrow-down' : 'arrow-up'"></my-icon></div>
+        <menu-list :list="item.children" v-show="item.opened"></menu-list>
       </div>
-      <div class="menu-parent" v-else>{{ item.meta.title }}</div>
+      <div class="menu-parent" v-else>
+        <router-link :to="item.name">{{ item.meta.title }}</router-link>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue';
+import { RouteRecordRaw } from 'vue-router';
+
 export default defineComponent({
   name: 'MenuList',
   props: {
@@ -20,13 +24,16 @@ export default defineComponent({
     }
   },
   setup() {
-    const opened = ref(false)
-    const showSub = () => {
-      opened.value = !opened.value
+    interface RouteRecordRaw {
+      opened: boolean;
     }
-    return { showSub, opened }
+    const opened = ref(false);
+    const showSub = (item: RouteRecordRaw) => {
+      item.opened = !item.opened;
+    };
+    return { showSub, opened };
   }
-})
+});
 </script>
 <style lang="scss" scoped>
 .menu-list {

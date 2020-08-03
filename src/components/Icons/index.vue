@@ -1,5 +1,5 @@
 <template>
-  <i :class="['my-icon-' + name, 'iconfont']" :style="{ fontSize: 'size' + px }"></i>
+  <i :class="['my-icon-' + name, 'iconfont']" :style="{ fontSize: size + 'px' }"></i>
 </template>
 <script lang="ts">
 export default {
@@ -11,7 +11,7 @@ export default {
       default: '20'
     }
   }
-}
+};
 </script>
 <style>
 @font-face {

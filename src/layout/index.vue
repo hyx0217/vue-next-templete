@@ -9,14 +9,14 @@
 </template>
 
 <script lang="ts">
-import Slider from './components/Slider/index.vue'
-import Navbar from './components/Navbar.vue'
-import AppMain from './components/AppMain.vue'
-import { defineComponent } from 'vue'
+import Slider from './components/Slider/index.vue';
+import Navbar from './components/Navbar.vue';
+import AppMain from './components/AppMain.vue';
+import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'Layout',
   components: { Slider, Navbar, AppMain }
-})
+});
 </script>
 
 <style lang="scss" scoped>
