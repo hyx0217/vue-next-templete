@@ -9,7 +9,11 @@ body {
 label {
   font-weight: 700;
 }
-
+ul,li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 html {
   height: 100%;
   box-sizing: border-box;

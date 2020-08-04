@@ -33,7 +33,7 @@ export default defineComponent({
   -webkit-transition: width 0.28s;
   transition: width 0.28s;
   width: 210px !important;
-  background-color: #304156;
+  background-color: $menuBg;
   height: 100%;
   position: fixed;
   font-size: 0px;
