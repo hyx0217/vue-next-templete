@@ -6,13 +6,13 @@
         <h1 v-else class="sidebar-title">{{ title }}</h1>
       </router-link>
     </div>
-    <menu-list :list="routerList"></menu-list>
+    <menu-list :list="routerList" ></menu-list>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
-import { useRouter } from 'vue-router';
+import { defineComponent, reactive, watch, provide, computed } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 import MenuList from './menuList.vue';
 export default defineComponent({
   components: { MenuList },
@@ -21,6 +21,11 @@ export default defineComponent({
     const showLogo = true;
     const title = 'Vue-next';
     const routerList = reactive(useRouter().options.routes);
+    const $route = useRoute();
+    const activePath = computed(() => {
+      return $route.path;
+    });
+    provide('activePath', activePath);
     return { showLogo, title, routerList };
   }
 });

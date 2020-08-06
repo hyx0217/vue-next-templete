@@ -18,13 +18,13 @@
       </div>
       <div class="menu-parent"
            v-else>
-          <router-link :class="[currentRouter===resolvePath(item.path)?'active':'','menu-sub-main']" :to="resolvePath(item.path)">{{ item.meta.title }}</router-link>
+          <router-link :class="[activePath===resolvePath(item.path)?'active':'','menu-sub-main']" :to="resolvePath(item.path)">{{ item.meta.title }}</router-link>
       </div>
     </li>
   </ul>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, inject } from 'vue';
 import { RouteRecordRaw, useRoute } from 'vue-router';
 import path from 'path';
 export default defineComponent({
@@ -50,7 +50,8 @@ export default defineComponent({
     const resolvePath = (routePath: string) => {
       return path.resolve(props.basePath, routePath);
     };
-    return { showSub, resolvePath, currentRouter };
+    const activePath = inject('activePath');
+    return { showSub, resolvePath, currentRouter, activePath };
   }
 });
 </script>
