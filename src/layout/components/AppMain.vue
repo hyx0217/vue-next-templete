@@ -1,6 +1,6 @@
 <template>
   <section class="app-main">
-    <router-view :key="key" />
+    <router-view/>
   </section>
 </template>
 

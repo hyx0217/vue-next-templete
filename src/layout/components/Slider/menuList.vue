@@ -1,11 +1,12 @@
 <template>
   <ul class="menu-list">
     <li class="menu-item"
-         v-for="(item, index) in list"
-         :key="index">
+        v-for="(item, index) in list"
+        :key="index">
       <div class="menu-sub"
-           v-if="item.children && item.children.length > 0">
-        <div class="menu-sub-main" @click.prevent="showSub(item)">
+           v-if="item.children && item.children.length > 0 && !item.meta.alwaysShow ">
+        <div class="menu-sub-main"
+             @click.prevent="showSub(item)">
           <!-- <my-icon class="left-icon"
                    name="arrow-down"></my-icon> -->
           <span>{{ item.meta.title }}</span>
@@ -14,11 +15,12 @@
         </div>
         <menu-list :list="item.children"
                    v-show="item.opened"
-                   :basePath='resolvePath(item.path)'></menu-list>
+                   :basePath='resolvePath(item)'></menu-list>
       </div>
       <div class="menu-parent"
            v-else>
-          <router-link :class="[activePath===resolvePath(item.path)?'active':'','menu-sub-main']" :to="resolvePath(item.path)">{{ item.meta.title }}</router-link>
+        <router-link :class="[activePath===resolvePath(item)?'active':'','menu-sub-main']"
+                     :to="resolvePath(item)">{{ item.meta.title }}</router-link>
       </div>
     </li>
   </ul>
@@ -40,17 +42,27 @@ export default defineComponent({
     }
   },
   setup(props) {
-    interface RouteRecordRaw {
+    interface ShowOpen {
       opened: boolean;
     }
-    const showSub = (item: RouteRecordRaw) => {
+    const showSub = (item: ShowOpen) => {
       item.opened = !item.opened;
     };
     const currentRouter = useRoute().path;
-    const resolvePath = (routePath: string) => {
-      return path.resolve(props.basePath, routePath);
+    const resolvePath = (item: RouteRecordRaw) => {
+      if (item.redirect) {
+        return path.resolve(props.basePath, item.redirect);
+      } else {
+        return path.resolve(props.basePath, item.path);
+      }
     };
+    /* accept father component's activePath */
     const activePath = inject('activePath');
+
+    /*  const hasChild: boolean = (children: [], parent: RouteRecordRaw): boolean => {
+      if(parent.)
+      return true;
+    }; */
     return { showSub, resolvePath, currentRouter, activePath };
   }
 });
@@ -61,7 +73,7 @@ export default defineComponent({
 .menu-list {
   height: 100%;
 }
-.menu-sub-main{
+.menu-sub-main {
   display: inline-block;
   width: 100%;
   height: 40px;
@@ -69,10 +81,10 @@ export default defineComponent({
   padding: 0 20px;
   width: 100%;
   color: $menuText;
-    &:hover{
+  &:hover {
     color: $menuActiveText;
   }
-  &.active{
+  &.active {
     color: $menuActiveText;
     background-color: $subMenuBg;
   }
@@ -90,9 +102,9 @@ export default defineComponent({
   }
 }
 .menu-sub {
-  .menu-list{
-    background:$subMenuBg;
-    padding-left:20px ;
+  .menu-list {
+    background: $subMenuBg;
+    padding-left: 20px;
   }
   .menu-item {
     display: flex;

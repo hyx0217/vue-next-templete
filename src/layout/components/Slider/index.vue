@@ -1,17 +1,21 @@
 <template>
   <div class="slider-container">
     <div class="slider-logo">
-      <router-link class="sidebar-logo-link" to="/">
-        <img v-if="showLogo" src="@/assets/images/logo.png" class="sidebar-logo" />
-        <h1 v-else class="sidebar-title">{{ title }}</h1>
+      <router-link class="sidebar-logo-link"
+                   to="/">
+        <img v-if="showLogo"
+             src="@/assets/images/logo.png"
+             class="sidebar-logo" />
+        <h1 v-else
+            class="sidebar-title">{{ title }}</h1>
       </router-link>
     </div>
-    <menu-list :list="routerList" ></menu-list>
+    <menu-list :list="routerList"></menu-list>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, watch, provide, computed } from 'vue';
+import { defineComponent, reactive, provide, computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import MenuList from './menuList.vue';
 export default defineComponent({

@@ -9,11 +9,14 @@ body {
 label {
   font-weight: 700;
 }
-ul,li{
+
+ul,
+li {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 html {
   height: 100%;
   box-sizing: border-box;
@@ -60,4 +63,13 @@ div:focus {
 // main-container global css
 .app-container {
   padding: 20px;
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: mix($color: #000000, $color: #000000, $weight: 0.5);
 }

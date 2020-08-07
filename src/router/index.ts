@@ -1,26 +1,55 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router';
 /* Layout */
 import Layout from '@/layout/index.vue';
+/**
+ * Note: sub-menu only appear when route children.length >= 1
+ * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
+ *
+
+ * redirect: noRedirect           if set noRedirect will no redirect in the breadcrumb
+ * name:'router-name'             the name is used by <keep-alive> (must set!!!)
+ * meta : {
+    title: 'title'               the name show in sidebar and breadcrumb (recommend set)
+    icon: 'svg-name'/'el-icon-x' the icon show in the sidebar
+    hidden: true                 if set true, item will not show in the sidebar(default is false)
+    alwaysShow: true             if set true, will always show the root menu
+                                 if not set alwaysShow, when item has more than one children route,
+                                 it will becomes nested mode, otherwise not show the root menu
+  }
+ */
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     redirect: '/home',
     component: Layout,
+    meta: { title: '首页', hidden: false, icon: '', alwaysShow: true },
     children: [
       {
         path: 'home',
         name: 'home',
         component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
-        meta: { title: '首页', hidden: false, icon: '' }
+        meta: { title: '首页', hidden: true, icon: '' }
+      }
+    ]
+  },
+  {
+    path: '/guide',
+    component: Layout,
+    meta: { title: '组件通信', hidden: false, icon: '' },
+    children: [
+      {
+        path: 'ftoc',
+        name: 'ftoc',
+        component: () => import(/* webpackChunkName: "ftoc" */ '../views/communication/ftoc.vue'),
+        meta: { title: '父传子', hidden: false, icon: '' }
       },
       {
-        path: 'about',
-        name: 'about',
-        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-        meta: { title: '关于我', hidden: false, icon: '' }
+        path: 'vuex',
+        name: 'vuex',
+        component: () => import(/* webpackChunkName: "vuex" */ '../views/communication/vuex.vue'),
+        meta: { title: 'Vuex', hidden: false, icon: '' }
       }
-    ],
-    meta: { title: '引导', hidden: false, icon: '' }
+    ]
   },
   {
     path: '/menu-list',
