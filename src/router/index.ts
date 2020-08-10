@@ -33,6 +33,20 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: '/compostions',
+    redirect: '/compostions/index',
+    component: Layout,
+    meta: { title: 'Compostions API', hidden: false, icon: '', alwaysShow: true },
+    children: [
+      {
+        path: 'index',
+        name: 'compostions',
+        component: () => import(/* webpackChunkName: "compostions" */ '../views/compostions/index.vue'),
+        meta: { title: 'Compostions API', hidden: true, icon: '' }
+      }
+    ]
+  },
+  {
     path: '/guide',
     component: Layout,
     meta: { title: '组件通信', hidden: false, icon: '' },
