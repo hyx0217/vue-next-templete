@@ -1,10 +1,14 @@
 <template>
   <div>
     <div class="box">
-      <child :count="count" @changepro="(val)=>provideMsg=val"></child>
-      <button @click="increse">+</button>
-      <button @click="decrese">-</button>
-      <button @click="changeMsg">改变Provide</button>
+      <child :count="count"
+             @increse="()=>count++"
+             @decrese="()=>count--"
+             @tozero="(val)=>count=val"></child>
+      <section>
+        <button class="btn default-btn"
+                @click="changeMsg">父组件改变provide</button>
+      </section>
     </div>
   </div>
 </template>
@@ -18,18 +22,12 @@ export default defineComponent({
   },
   setup() {
     const count = ref(1);
-    const increse = () => {
-      count.value++;
-    };
-    const decrese = () => {
-      count.value--;
-    };
-    const provideMsg = ref('react is good');
+    const provideMsg = ref('vue is good');
     const changeMsg = () => {
-      provideMsg.value = 'vue is better';
+      provideMsg.value = 'father change';
     };
     provide('provideMsg', provideMsg);
-    return { count, increse, decrese, changeMsg, provideMsg };
+    return { count, changeMsg, provideMsg };
   }
 });
 </script>
