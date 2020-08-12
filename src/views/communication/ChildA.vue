@@ -8,10 +8,10 @@
 
 </template>
 <script lang="ts">
-import { defineComponent, inject } from 'vue';
+import { defineComponent, inject, ref } from 'vue';
 export default defineComponent({
   setup() {
-    const provideMsg = inject('provideMsg');
+    const provideMsg = ref(inject('provideMsg'));
     const changeGrandFather = () => {
       provideMsg.value = 'grandson change';
     };
