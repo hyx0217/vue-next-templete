@@ -23,7 +23,7 @@
 
 </template>
 <script lang="ts">
-import { defineComponent, inject } from 'vue';
+import { defineComponent, inject, ref } from 'vue';
 import ChildA from '@/views/communication/ChildA.vue';
 export default defineComponent({
   props: {
@@ -36,7 +36,7 @@ export default defineComponent({
     ChildA
   },
   setup(props, { emit }) {
-    const provideMsg = inject('provideMsg');
+    const provideMsg = ref(inject('provideMsg'));
     const changeFather = () => {
       provideMsg.value = 'child change';
     };
