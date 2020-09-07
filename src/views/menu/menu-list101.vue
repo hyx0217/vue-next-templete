@@ -1,8 +1,9 @@
 <template>
-  <div class="mouse-box">
-    <span>x:{{x}}</span>
-    <span>y:{{y}}</span>
-  </div>
+    <h3>获取鼠标坐标，公共方法引入</h3>
+    <div class="mouse-box">
+      <span>x:{{x}}</span>
+      <span>y:{{y}}</span>
+    </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -15,11 +16,8 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-.mouse-box{
+.mouse-box {
   width: 200px;
   height: 50px;
-  position: absolute;
-  left: 0;
-  top: 0;
 }
 </style>

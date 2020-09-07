@@ -8,13 +8,16 @@ module.exports = {
     'prettier/@typescript-eslint',
     'plugin:vue/vue3-essential',
     'plugin:@typescript-eslint/recommended',
-    '@vue/typescript/recommended',
+    "plugin:vue/strongly-recommended",
+   ' plugin:vue/recommended',
+    '@vue/typescript/recommended'
     // '@vue/prettier'
   ],
   parserOptions: {
     ecmaVersion: 2020
   },
   rules: {
+    'vue/no-multiple-template-root': ['error', 'always' | 'never'],
     // 强制 getter 和 setter 在对象中成对出现
     'accessor-pairs': 2,
     // 强制箭头函数的箭头前后使用一致的空格，true：开启空格，false：不开启空格

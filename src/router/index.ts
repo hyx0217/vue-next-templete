@@ -79,7 +79,7 @@ const routes: Array<RouteRecordRaw> = [
             path: 'menu-list-101',
             name: 'menu-list-101',
             component: () => import('../views/menu/menu-list101.vue'),
-            meta: { title: '菜单1-1', hidden: false, icon: '' }
+            meta: { title: '获取鼠标坐标', hidden: false, icon: '' }
           }
         ]
       },
