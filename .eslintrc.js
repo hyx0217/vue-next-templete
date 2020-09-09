@@ -8,16 +8,17 @@ module.exports = {
     'prettier/@typescript-eslint',
     'plugin:vue/vue3-essential',
     'plugin:@typescript-eslint/recommended',
-    "plugin:vue/strongly-recommended",
-   ' plugin:vue/recommended',
+    'plugin:vue/strongly-recommended',
     '@vue/typescript/recommended'
     // '@vue/prettier'
   ],
   parserOptions: {
     ecmaVersion: 2020
   },
+  plugins: ['vue'],
   rules: {
-    'vue/no-multiple-template-root': ['error', 'always' | 'never'],
+    // 关闭多个根节点报错检验
+    'vue/no-multiple-template-root': ['off'],
     // 强制 getter 和 setter 在对象中成对出现
     'accessor-pairs': 2,
     // 强制箭头函数的箭头前后使用一致的空格，true：开启空格，false：不开启空格
