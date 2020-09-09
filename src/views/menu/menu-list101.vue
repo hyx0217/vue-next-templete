@@ -1,6 +1,5 @@
 <template>
     <h3>获取鼠标坐标，公共方法引入</h3>
-    <!-- 测试 -->
     <div class="mouse-box">
       <span>x:{{x}}</span>
       <span>y:{{y}}</span>
