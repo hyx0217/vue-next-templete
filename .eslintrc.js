@@ -17,8 +17,10 @@ module.exports = {
   },
   plugins: ['vue'],
   rules: {
+    // 关闭html属性另起一行检测
+    'eslint-disable-next-line': ['off','never'],
     // 关闭多个根节点报错检验
-    'vue/no-multiple-template-root': ['off'],
+    'vue/no-multiple-template-root': ['off','never'],
     // 强制 getter 和 setter 在对象中成对出现
     'accessor-pairs': 2,
     // 强制箭头函数的箭头前后使用一致的空格，true：开启空格，false：不开启空格

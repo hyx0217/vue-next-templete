@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <h3>获取鼠标坐标，公共方法引入</h3>
-    <div class="mouse-box">
-      <span>x:{{ x }}</span>
-      <span>y:{{ y }}</span>
-    </div>
+  <h3>获取鼠标坐标，公共方法引入</h3>
+  <div class="mouse-box">
+    <span>x:{{ x }}</span>
+    <span>y:{{ y }}</span>
   </div>
 </template>
 <script lang="ts">
