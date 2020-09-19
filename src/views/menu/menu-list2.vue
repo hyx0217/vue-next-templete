@@ -13,8 +13,6 @@
 
 <script setup>
 import { ref } from 'vue';
-export default {
-};
 export const color = ref('red');
 export function change() {
   color.value = color.value === 'red' ? 'green' : 'red';

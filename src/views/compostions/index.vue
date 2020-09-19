@@ -7,7 +7,7 @@
       <p>{{ isVal }}</p>
     </section>
     <section ref="title">
-      <h3>通过refs获取该Title（对应原先的this.$refs）</h3>
+      <h3>通过ref声明同名title变量获取该元素实例（对应原先的this.$refs）</h3>
     </section>
   </div>
 </template>;
