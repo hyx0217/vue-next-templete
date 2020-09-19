@@ -5,14 +5,18 @@
              :count="count"
              @increse="()=>count++"
              @decrese="()=>count--"
-             @tozero="(val)=>count=val"></child>
+             @tozero="(val)=>count=val" />
       <section>
         <button class="btn default-btn"
-                @click="changeMsg">父组件改变provide</button>
+                @click="changeMsg">
+          父组件改变provide
+        </button>
       </section>
       <section>
         <button class="btn default-btn mtb20"
-                @click="refChangeMsg">通过$ref调用子组件方法改变provide</button>
+                @click="refChangeMsg">
+          通过$ref调用子组件方法改变provide
+        </button>
       </section>
     </div>
   </div>

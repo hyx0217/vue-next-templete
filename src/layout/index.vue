@@ -1,9 +1,9 @@
 <template>
   <div class="app-wrapper">
-    <slider class="slider"></slider>
+    <slider class="slider" />
     <div class="main-container">
-      <navbar></navbar>
-      <app-main></app-main>
+      <navbar />
+      <app-main />
     </div>
   </div>
 </template>

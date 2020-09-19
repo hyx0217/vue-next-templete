@@ -1,12 +1,12 @@
 <template>
   <i :class="['my-icon-' + name, 'iconfont','my-icon']"
-     :style="{ fontSize: size + 'px' }"></i>
+     :style="{ fontSize: size + 'px' }" />
 </template>
 <script lang="ts">
 export default {
   name: 'MyIcon',
   props: {
-    name: String,
+    name: { type: String, default: '' },
     size: {
       type: String,
       default: '14'

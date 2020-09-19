@@ -3,10 +3,8 @@
     <h2>Script Setup + CSS Variables Injection</h2>
     <p>
       <span class="style-vars">This should be red</span>
-      <button
-        class="script-setup-change"
-        @click="change"
-      >
+      <button class="script-setup-change"
+              @click="change">
         click to change
       </button>
     </p>

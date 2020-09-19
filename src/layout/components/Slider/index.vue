@@ -5,12 +5,14 @@
                    to="/">
         <img v-if="showLogo"
              src="@/assets/images/logo.png"
-             class="sidebar-logo" />
+             class="sidebar-logo">
         <h1 v-else
-            class="sidebar-title">{{ title }}</h1>
+            class="sidebar-title">
+          {{ title }}
+        </h1>
       </router-link>
     </div>
-    <menu-list :list="routerList"></menu-list>
+    <menu-list :list="routerList" />
   </div>
 </template>
 

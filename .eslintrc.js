@@ -17,6 +17,18 @@ module.exports = {
   },
   plugins: ['vue'],
   rules: {
+    "vue/html-closing-bracket-newline": ["error", {
+      "singleline": "never",
+      "multiline": "never"
+    }],
+    // 允许第一行属性和html标签在同一行
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": 1,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": true
+      }
+    }],
     // 关闭html属性另起一行检测
     'eslint-disable-next-line': ['off','never'],
     // 关闭多个根节点报错检验
@@ -42,6 +54,7 @@ module.exports = {
         properties: 'always'
       }
     ],
+    
     // 禁止使用拖尾逗号，结束时不应该有逗号
     'comma-dangle': [2, 'never'],
     // 逗号前没有空格，逗号后由空格

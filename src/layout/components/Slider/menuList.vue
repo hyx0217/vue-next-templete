@@ -11,16 +11,18 @@
                    name="arrow-down"></my-icon> -->
           <span>{{ item.meta.title }}</span>
           <my-icon :class="[item.opened?'arrow-opened':'','right-icon']"
-                   name="arrow-down"></my-icon>
+                   name="arrow-down" />
         </div>
         <menu-list :list="item.children"
                    v-show="item.opened"
-                   :basePath='resolvePath(item)'></menu-list>
+                   :base-path="resolvePath(item)" />
       </div>
       <div class="menu-parent"
            v-else>
         <router-link :class="[activePath===resolvePath(item)?'active':'','menu-sub-main']"
-                     :to="resolvePath(item)">{{ item.meta.title }}</router-link>
+                     :to="resolvePath(item)">
+          {{ item.meta.title }}
+        </router-link>
       </div>
     </li>
   </ul>

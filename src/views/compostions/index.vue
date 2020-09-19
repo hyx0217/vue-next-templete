@@ -2,9 +2,9 @@
   <div class="container">
     <section>
       <h3>Ref</h3>
-      <p>{{val}}</p>
+      <p>{{ val }}</p>
       <h3>isRef（检查一个值是否为一个 ref 对象）</h3>
-      <p>{{isVal}}</p>
+      <p>{{ isVal }}</p>
     </section>
     <section ref="title">
       <h3>通过refs获取该Title（对应原先的this.$refs）</h3>

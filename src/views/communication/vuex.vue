@@ -2,8 +2,12 @@
   <div>
     <h1>{{ msg }}</h1>
     <h2>{{ count }}</h2>
-    <button @click="increse">+</button>
-    <button @click="decrese">-</button>
+    <button @click="increse">
+      +
+    </button>
+    <button @click="decrese">
+      -
+    </button>
   </div>
 </template>
 
@@ -14,7 +18,7 @@ import { defineComponent, onMounted, computed } from 'vue';
 export default defineComponent({
   name: 'Vuex',
   props: {
-    msg: String
+    msg: { type: String, default: '' }
   },
   setup() {
     const store = useStore();
