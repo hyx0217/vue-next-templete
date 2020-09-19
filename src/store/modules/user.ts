@@ -1,4 +1,3 @@
-import store from '@/store';
 import { getUser, login } from '@/api/login';
 import { getToken, removeToken, setToken } from '@/utils/auth';
 import { VuexModule, Module, Action, Mutation, getModule } from 'vuex-module-decorators';
@@ -9,7 +8,7 @@ export interface UserState {
   roles: string[];
 }
 
-@Module({ dynamic: true, store, name: 'user' })
+@Module({ namespaced: true })
 class User extends VuexModule implements UserState {
   public token = getToken() || '';
   public name = '';
@@ -47,7 +46,7 @@ class User extends VuexModule implements UserState {
     username = username.trim();
     const { data } = await login({ username, password });
     setToken(data.token);
-    this.SET_TOKEN(data.token);
+    this.context.commit('SET_TOKEN',data.token);
   }
 
   @Action
@@ -91,4 +90,4 @@ class User extends VuexModule implements UserState {
   }
 }
 
-export const UserModule = getModule(User);
+export const UserModule = User;

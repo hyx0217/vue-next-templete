@@ -1,10 +1,10 @@
 <template>
   <ul class="menu-list">
     <li class="menu-item"
-        v-for="(item, index) in list"
+        v-for="(item, index) in routerList"
         :key="index">
       <div class="menu-sub"
-           v-if="item.children && item.children.length > 0 && !item.meta.alwaysShow ">
+           v-if=" item.children && item.children.length > 0 && !item.meta.alwaysShow ">
         <div class="menu-sub-main"
              @click.prevent="showSub(item)">
           <!-- <my-icon class="left-icon"
@@ -47,6 +47,9 @@ export default defineComponent({
     interface ShowOpen {
       opened: boolean;
     }
+    const routerList = props.list.filter((item: any) => {
+      return item.meta.hidden === false;
+    });
     const showSub = (item: ShowOpen) => {
       item.opened = !item.opened;
     };
@@ -65,7 +68,7 @@ export default defineComponent({
       if(parent.)
       return true;
     }; */
-    return { showSub, resolvePath, currentRouter, activePath };
+    return { showSub, resolvePath, currentRouter, activePath, routerList };
   }
 });
 </script>

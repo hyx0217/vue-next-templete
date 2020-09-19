@@ -28,9 +28,15 @@ const routes: Array<RouteRecordRaw> = [
         path: 'home',
         name: 'home',
         component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
-        meta: { title: '首页', hidden: true, icon: '' }
+        meta: { title: '首页', hidden: false, icon: '' }
       }
     ]
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/login.vue'),
+    meta: { title: '登录', hidden: true }
   },
   {
     path: '/compostions',
@@ -42,7 +48,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'index',
         name: 'compostions',
         component: () => import(/* webpackChunkName: "compostions" */ '../views/compostions/index.vue'),
-        meta: { title: 'Compostions API', hidden: true, icon: '' }
+        meta: { title: 'Compostions API', hidden: false, icon: '' }
       }
     ]
   },

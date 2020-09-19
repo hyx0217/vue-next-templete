@@ -1,8 +1,11 @@
 import { createStore } from 'vuex';
 import { CountModule } from './modules/count';
+import { UserModule } from './modules/user';
+
 
 export default createStore({
   modules: {
-    count: CountModule
+    user: UserModule,
+    count: CountModule,
   }
 });
