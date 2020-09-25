@@ -23,6 +23,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const count = computed(() => store.state.count.count);
+    console.log(store);
     const increse = () => {
       store.dispatch('count/Increment');
     };

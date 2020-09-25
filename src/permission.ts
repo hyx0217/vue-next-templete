@@ -9,7 +9,7 @@ router.beforeEach((to, from, next) => {
     if (to.path === '/login') {
       next('/home');
     } else {
-      store.dispatch('GetUser');
+      store.dispatch('user/GetUser');
     }
     next();
   } else {

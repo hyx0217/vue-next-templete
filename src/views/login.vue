@@ -48,7 +48,7 @@ export default {
       }
       const data = { userName: phoneData.value, password: passData.value };
       console.log(data);
-      // await store.dispatch('user/Login', data);
+      await store.dispatch('user/Login', data);
       router.replace('home');
     };
     return {

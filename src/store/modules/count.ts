@@ -1,26 +1,26 @@
-import { VuexModule, Module, Action, Mutation } from 'vuex-module-decorators';
 export interface CountState {
   count: number;
 }
 
-@Module({ namespaced: true })
-class Count extends VuexModule implements CountState {
-  public count = 0;
-  @Mutation
-  private increment() {
-    this.count++;
+export const CountModule = {
+  namespaced: true,
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment: (state: any) => {
+      state.count++;
+    },
+    decrement: (state: any) => {
+      state.count--;
+    }
+  },
+  actions: {
+    Increment: ({ commit }: any) => {
+      commit('increment');
+    },
+    Decrement: ({ commit }: any) => {
+      commit('decrement');
+    }
   }
-  @Mutation
-  private decrement() {
-    this.count--;
-  }
-  @Action
-  public Increment() {
-    this.context.commit('increment');
-  }
-  @Action
-  public Decrement() {
-    this.context.commit('decrement');
-  }
-}
-export const CountModule = Count;
+};
